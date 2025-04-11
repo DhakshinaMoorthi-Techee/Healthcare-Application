@@ -1,0 +1,14 @@
+.main{
+    width: 10%;
+}
+
+.grid-main{
+    width: 500px;
+    display:flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.grids{
+    padding: 1rem;
+}
