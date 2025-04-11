@@ -1,55 +1,61 @@
-# React + TypeScript + Vite
+# 🏥 Room Scheduling App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic room scheduling app built with React, designed to manage hospital/clinic scheduling efficiently. This project includes shift management, room allocation, block management, and weekly doctor assignments using local storage.
 
-Currently, two official plugins are available:
+Live Demo Here -- https://healthcare-schedule.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Workflow Overview
 
-## Expanding the ESLint configuration
+All input data is stored in **LocalStorage**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1️⃣ Shift Page
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Purpose:** Manage working shifts.
+- **Features:** Add, update, delete shifts using a modal.
+- **Example:** `10AM - 1PM`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ![image](https://github.com/user-attachments/assets/61d16f70-36ea-4900-99f4-4cdb9dce6a9d)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# Healthcare-Application
+### 2️⃣ Block Page
+
+- **Purpose:** CRUD operations for Blocks (ex: Block A, Block B).
+- **Features:** Add blocks that later appear in the Room section.
+
+- ![image](https://github.com/user-attachments/assets/29c82bf4-927d-4014-958f-c3a9b7c01b7f)
+
+
+### 3️⃣ Room Page
+
+- **Purpose:** CRUD operations for Rooms.
+- **Features:** Assign each room to a Block (selected via modal dropdown).
+- **Behavior:** Rooms will be grouped by their blocks.
+
+- ![image](https://github.com/user-attachments/assets/3d2e7a70-162f-43ea-84b6-f361722c9389)
+
+### 4️⃣ Doctor Page
+
+- **Purpose:** CRUD operations for Doctors.
+- **Features:** Add a Doctor to getting assigned in the room scheduling.
+
+- ![image](https://github.com/user-attachments/assets/dfdbf2af-f134-451b-9263-7a2afba655e0)
+
+### 5️⃣ Room Schedule Page
+
+- **Purpose:** Visual schedule for assigning doctors to rooms by **day** and **shift**.
+- **Features:**
+  - Displays rooms under each block.
+  - Each room is split into time slots based on shifts.
+  - Doctors can be assigned/unassigned via modals.
+  - Adding a new shift updates the schedule view dynamically.
+ 
+  - ![image](https://github.com/user-attachments/assets/057b39d7-50ee-47d3-9711-b6a0c7423473)
+
+---
+
+## 🧠 Functionality Summary
+
+- 🟨 **Yellow Cell** = Click to **Add Doctor**
+- ✅ **Green Cell** = Doctor assigned. Click to **Remove Doctor**
+- 🔄 Same modal is reused for **Add/Remove**
+- 
